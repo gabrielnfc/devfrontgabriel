@@ -3,38 +3,42 @@ import styled from 'styled-components';
 import CustomLink from './CustomLink.jsx';
 
 const Nav = styled.nav`
-  width: 1400px;
+  inline-size: 1400px;
+  block-size: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0px;
+  padding: 1px 0px;
 `;
 
 const Icon = styled(Link)`
-  font-size: 1.5rem;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
+  display: flex;
+  width: 100px;
+  height: 150px;
+  align-items: center;
+  padding-block-start: 5px;
 `;
 
 const List = styled.ul`
+  font-size: 1.5em;
+  font-weight: bold;
   display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  padding-block-start: 5px;
 `;
 
+
+
 const LIST_ITENS = [
-  { route: '/About', content: 'Sobre' },
-  { route: '/Projects', content: 'Projetos' },
-  { route: '/Contact', content: 'Contato' },
+  { route: '/Sobre', content: 'Sobre' },
+  { route: '/Projetos', content: 'Projetos' },
+  { route: '/Contato', content: 'Contato' },
 ];
 
 const Navbar = () => {
   return (
     <Nav>
       <Icon to="/">
-        <img src="" alt="" />
+        <img src="./public/img/logo.png" alt="Logo" />
       </Icon>
       <List>
         {LIST_ITENS.map((item) => {

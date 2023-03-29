@@ -9,28 +9,16 @@ import Contact from './pages/Contact';
 import './style.css';
 
 const AppContainer = styled.div`
-  height: 100vh;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-  overflow-y: auto;
-  scrollbar-width: none;
-  color: white;
-  background: #0f2027;
-  background: -webkit-linear-gradient(
-    to right,
-    #2c5364,
-    #203a43,
-    #0f2027
-  );
-  background: linear-gradient(
-    to right,
-    #2c5364,
-    #203a43,
-    #0f2027
-  );
+  display: flex;
+  inline-size: 100vw;
+  block-size: 100vh;
+  flex-direction: column;
+  box-sizing: border-box;
+  background: url('./public/img/bg.png');
 `;
 
-const ContentContainer = styled.div``;
+const ContentContainer = styled.div`
+`;
 
 function App() {
   return (
@@ -39,9 +27,9 @@ function App() {
       <ContentContainer>
         <Routes>
           <Route element={<Home />} exact path="/" />
-          <Route element={<About />} path="/About" />
-          <Route elemnte={<Projects />} path="/Projects" />
-          <Route element={<Contact />} path="/Contact" />
+          <Route element={<About />} path="/Sobre" />
+          <Route elemnte={<Projects />} path="/Projetos" />
+          <Route element={<Contact />} path="/Contato" />
         </Routes>
       </ContentContainer>
     </AppContainer>
