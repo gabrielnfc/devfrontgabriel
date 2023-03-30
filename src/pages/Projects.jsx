@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 const ProjectsContainer = styled.div`
   display: flex;
@@ -37,29 +38,40 @@ const ProjectDescription = styled.p`
 
 const Projects = () => {
   return (
-    <ProjectsContainer>
-      <ProjectCard>
-        <ProjectImage src="#" />
-        <ProjectTitle>Project 1</ProjectTitle>
-        <ProjectDescription>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </ProjectDescription>
-      </ProjectCard>
-      <ProjectCard>
-        <ProjectImage src="#" />
-        <ProjectTitle>Project 2</ProjectTitle>
-        <ProjectDescription>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </ProjectDescription>
-      </ProjectCard>
-      <ProjectCard>
-        <ProjectImage src="#" />
-        <ProjectTitle>Project 3</ProjectTitle>
-        <ProjectDescription>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </ProjectDescription>
-      </ProjectCard>
-    </ProjectsContainer>
+    <motion.div
+      className="box"
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.3,
+        delay: 0.3,
+        ease: [0, 0.71, 0.2, 1.01],
+      }}
+    >
+      <ProjectsContainer>
+        <ProjectCard>
+          <ProjectImage src="#" />
+          <ProjectTitle>Project 1</ProjectTitle>
+          <ProjectDescription>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </ProjectDescription>
+        </ProjectCard>
+        <ProjectCard>
+          <ProjectImage src="#" />
+          <ProjectTitle>Project 2</ProjectTitle>
+          <ProjectDescription>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </ProjectDescription>
+        </ProjectCard>
+        <ProjectCard>
+          <ProjectImage src="#" />
+          <ProjectTitle>Project 3</ProjectTitle>
+          <ProjectDescription>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </ProjectDescription>
+        </ProjectCard>
+      </ProjectsContainer>
+    </motion.div>
   );
 };
 

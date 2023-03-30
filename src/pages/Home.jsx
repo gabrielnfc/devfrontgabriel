@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 const HomeContainer = styled.div`
   display: flex;
@@ -44,8 +45,8 @@ const Subtitle = styled.h2`
 
 const Desc = styled.p`
   font-size: 24px;
-  padding: 15px;
   color: lightgray;
+  padding-block-end: 30px;
 `;
 
 const Button = styled(Link)`
@@ -71,37 +72,66 @@ const Img = styled.img`
   block-size: 700px;
   margin-block-start: 50px;
   margin-inline-start: 80px;
-  padding: 10px;
+  padding: 15px;
+  background-size: cover;
+  cursor: pointer;
   border-radius: 50%;
-  box-shadow: 0 0 0 5px #fff, 0 0 0 10px white;
+  box-shadow: 0 0 0 5px #fff, 0 0 0 50px white;
   animation: animate 2s infinite ease alternate;
 
   @keyframes animate {
     to {
-      transform: translateY(20px);
+      transform: translateY(45px);
       box-shadow: 0 0 0 5px #fff, 0 0 0 20px white;
     }
   }
 `;
 
-
 function Home() {
   return (
-    <HomeContainer>
-      <Left>
-        <Title>Pensar. Fazer. Resolver.</Title>
-        <WhatWeDo>
-          <Line src="./public/img/line.png" />
-          <Subtitle>O que eu faço</Subtitle>
-          <Line src="./public/img/line.png" />
-        </WhatWeDo>
-        <Desc>Gosto de criar experiências digitais através da tecnologia.</Desc>
-        <Button to="/Sobre"> Saiba mais </Button>
-      </Left>
-      <Right>
-        <Img src="./public/img/avatar1.png" />
-      </Right>
-    </HomeContainer>
+    <motion.div
+      className="box"
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.8,
+        delay: 0.2,
+        ease: [0, 0.71, 0.2, 1.01],
+      }}
+    >
+      <HomeContainer>
+        <Left>
+          <Title>Pensar. Fazer. Resolver.</Title>
+          <WhatWeDo>
+            <Line src="./public/img/line.png" />
+            <Subtitle>O que eu faço?</Subtitle>
+            <Line src="./public/img/line.png" />
+          </WhatWeDo>
+          <Desc>Criação e inovação através da tecnologia.</Desc>
+          <motion.a
+            whileHover={{ scale: 1.2 }}
+            onHoverStart={(e) => {}}
+            onHoverEnd={(e) => {}}
+          >
+            <Button to="/Sobre"> Saiba mais </Button>
+          </motion.a>
+        </Left>
+        <Right>
+          <motion.div
+            className="box2"
+            drag
+            dragConstraints={{
+              top: -50,
+              left: -50,
+              right: 50,
+              bottom: 50,
+            }}
+          >
+            <Img src="./public/img/avatar1.png" />
+          </motion.div>
+        </Right>
+      </HomeContainer>
+    </motion.div>
   );
 }
 

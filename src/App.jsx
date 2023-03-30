@@ -1,12 +1,12 @@
 import React from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { motion, AnimatePresence } from 'framer-motion';
 import './style.css';
 
 const AppContainer = styled.div`
@@ -25,42 +25,30 @@ const ContentContainer = styled.div`
   block-size: 100vh;
   inline-size: 100vw;
 `;
-const PageTransition = ({ children, location }) => {
-  return (
-    <CSSTransition
-      key={location.key}
-      classNames="page-transition"
-      timeout={300}
-    >
-      {children}
-    </CSSTransition>
-  );
-};
 
 function App() {
-  const location = useLocation();
-
   return (
     <AppContainer>
-      <Navbar />
-      <ContentContainer>
-        <PageTransition location={location}>
-          <TransitionGroup>
-            <CSSTransition
-              key={location.key}
-              classNames="page-transition"
-              timeout={300}
-            >
-              <Routes>
-                <Route element={<Home />} exact path="/" />
-                <Route element={<About />} path="/Sobre" />
-                <Route element={<Projects />} path="/Projetos" />
-                <Route element={<Contact />} path="/Contato" />
-              </Routes>
-            </CSSTransition>
-          </TransitionGroup>
-        </PageTransition>
-      </ContentContainer>
+      <motion.div
+        className="box"
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.8,
+          delay: 0.5,
+          ease: [0, 0.71, 0.2, 1.01],
+        }}
+      >
+        <Navbar />
+        <ContentContainer>
+          <Routes>
+            <Route element={<Home />} exact path="/" />
+            <Route element={<About />} path="/Sobre" />
+            <Route element={<Projects />} path="/Projetos" />
+            <Route element={<Contact />} path="/Contato" />
+          </Routes>
+        </ContentContainer>
+      </motion.div>
     </AppContainer>
   );
 }
