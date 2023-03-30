@@ -1,57 +1,106 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const HomeContainer = styled.div`
   display: flex;
+  inline-size: 100vw;
+  block-size: 100vh;
+  padding: 25px;
+`;
+
+const Left = styled.div`
+  display: flex;
+  inline-size: 50%;
+  padding: 35px 35px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 50px;
 `;
 
 const Title = styled.h1`
-  font-size: 4rem;
-  margin-bottom: 1rem;
+  font-size: 140px;
+  font-family: 'Centra', sans-serif !important;
+  font-weight: bold;
+  text-align: center;
   color: #fff;
+  margin-block-start: 80px;
 `;
 
-const Description = styled.p`
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 2rem;
-  color: #fff;
+const WhatWeDo = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  gap: 10px;
+`;
+
+const Line = styled.img`
+  block-size: 3px;
+`;
+
+const Subtitle = styled.h2`
+  color: #fadf87;
+`;
+
+const Desc = styled.p`
+  font-size: 24px;
+  padding: 15px;
+  color: lightgray;
+`;
+
+const Button = styled(Link)`
+  background-color: #e9e16ec8;
+  color: white;
+  font-weight: 500;
+  inline-size: 100px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+`;
+
+const Right = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Img = styled.img`
-  inline-size: 500px;
-  block-size: 500px;
+  inline-size: 700px;
+  block-size: 700px;
+  margin-block-start: 50px;
+  margin-inline-start: 80px;
+  padding: 10px;
   border-radius: 50%;
-  border: 8px solid #fff;
-  animation: border-animation 5s infinite;
+  box-shadow: 0 0 0 5px #fff, 0 0 0 10px white;
+  animation: animate 2s infinite ease alternate;
 
-  @keyframes border-animation {
-    0% {
-      border-color: #fff;
-    }
-    50% {
-      border-color: #e7c738;
-    }
-    100% {
-      border-color: #55d4bf;
+  @keyframes animate {
+    to {
+      transform: translateY(20px);
+      box-shadow: 0 0 0 5px #fff, 0 0 0 20px white;
     }
   }
 `;
 
+
 function Home() {
   return (
     <HomeContainer>
-      <Title>Welcome to my React App!</Title>
-        <Description>
-          This is the home page of my app. I am a full-stack developer with a
-          background in web development and a passion for learning new
-          technologies. I am currently working as a Full-Stack Developer at{' '}
-        </Description>
-      <Img src="./public/img/avatar1.png" />
+      <Left>
+        <Title>Pensar. Fazer. Resolver.</Title>
+        <WhatWeDo>
+          <Line src="./public/img/line.png" />
+          <Subtitle>O que eu faço</Subtitle>
+          <Line src="./public/img/line.png" />
+        </WhatWeDo>
+        <Desc>Gosto de criar experiências digitais através da tecnologia.</Desc>
+        <Button to="/Sobre"> Saiba mais </Button>
+      </Left>
+      <Right>
+        <Img src="./public/img/avatar1.png" />
+      </Right>
     </HomeContainer>
   );
 }

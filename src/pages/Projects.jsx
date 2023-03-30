@@ -3,23 +3,27 @@ import styled from 'styled-components';
 
 const ProjectsContainer = styled.div`
   display: flex;
+  inline-size: 95vw;
+  block-size: 75vh;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  max-width: 100%;
+  padding: 0.5em 0.5em 0.5em;
 `;
 
 const ProjectCard = styled.div`
-  width: 30%;
-  margin-bottom: 30px;
+  inline-size: 30%;
+  margin-block-end: 30px;
+  padding: 0.5em 0.5em 0.5em;
   border: 1px solid #ccc;
   border-radius: 5px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 5px #fff;
+  background-color: #fff;
 `;
 
 const ProjectImage = styled.img`
-  width: 100%;
-  height: auto;
+  inline-size: 100%;
+  block-size: auto;
   border-radius: 5px 5px 0 0;
 `;
 
@@ -37,17 +41,23 @@ const Projects = () => {
       <ProjectCard>
         <ProjectImage src="#" />
         <ProjectTitle>Project 1</ProjectTitle>
-        <ProjectDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ProjectDescription>
+        <ProjectDescription>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </ProjectDescription>
       </ProjectCard>
       <ProjectCard>
         <ProjectImage src="#" />
         <ProjectTitle>Project 2</ProjectTitle>
-        <ProjectDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ProjectDescription>
+        <ProjectDescription>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </ProjectDescription>
       </ProjectCard>
       <ProjectCard>
         <ProjectImage src="#" />
         <ProjectTitle>Project 3</ProjectTitle>
-        <ProjectDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ProjectDescription>
+        <ProjectDescription>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </ProjectDescription>
       </ProjectCard>
     </ProjectsContainer>
   );
