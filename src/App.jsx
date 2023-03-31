@@ -14,7 +14,7 @@ const AppContainer = styled.div`
   inline-size: 100vw;
   block-size: 100vh;
   box-sizing: border-box;
-  background: url('./public/img/bg.png');
+  background-image: linear-gradient(135deg, #ffd3a5 10%, #fd6585 100%);
 `;
 
 const ContentContainer = styled.div`

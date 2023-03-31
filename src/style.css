@@ -25,15 +25,12 @@
     font-weight: 400;
 }
 
-/************ transicao de page************/
-
-/* Classe CSS para a transição */
-.base-page-size {
-    inline-size: 100%;
-    min-block-size: 100vh;
-}
-
-
-.box2 {
-    z-index: 99;
+/************ gradients e animações************/
+:root {
+    --color-white: #ffffff;
+    --color-gray: #c4c4c4;
+    --color-black: #000000;
+    --color-purple: #8000ff;
+    --color-light-purple: rgb(207, 89, 230);
+    --color-light-blue: #6BC5F8;
 }

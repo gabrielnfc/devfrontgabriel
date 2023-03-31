@@ -24,15 +24,45 @@ const Title = styled.h1`
   font-family: 'Centra', sans-serif !important;
   font-weight: bold;
   text-align: center;
-  color: #fff;
-  margin-block-start: 80px;
+  color: var(--color-white);
+  margin-block-start: 15px;
+  line-height: 0.9em;
+  span {
+    background: linear-gradient(
+      -45deg,
+      var(--color-light-blue),
+      var(--color-light-purple),
+      var(--color-light-blue),
+      var(--color-light-purple)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400% 400%;
+    animation: gradient 3s ease infinite;
+
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+  }
 `;
 
 const WhatWeDo = styled.div`
   display: flex;
   align-items: center;
-  padding: 5px;
-  gap: 10px;
+  padding: 15px;
 `;
 
 const Line = styled.img`
@@ -40,22 +70,59 @@ const Line = styled.img`
 `;
 
 const Subtitle = styled.h2`
-  color: #fadf87;
+  font-size: 50px;
+  font-weight: bold;
+  background: linear-gradient(
+    -45deg,
+    var(--color-light-blue),
+    var(--color-light-purple),
+    var(--color-light-blue),
+    var(--color-light-purple)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 400% 400%;
+  animation: gradient 3s ease infinite;
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 `;
 
 const Desc = styled.p`
+  font-family: 'Centra', sans-serif !important;
   font-size: 24px;
-  color: lightgray;
+  color: #fff;
   padding-block-end: 30px;
 `;
 
 const Button = styled(Link)`
-  background-color: #e9e16ec8;
-  color: white;
+  font-family: 'Centra', sans-serif !important;
+  font-variant: small-caps;
+  background-color: #f5f1b9c7;
+  background: linear-gradient(
+    -45deg,
+    var(--color-light-blue),
+    var(--color-light-purple),
+    var(--color-light-blue),
+    var(--color-light-purple)
+  );
   font-weight: 500;
   inline-size: 100px;
   padding: 10px;
-  border: none;
   border-radius: 5px;
   cursor: pointer;
 `;
@@ -68,21 +135,21 @@ const Right = styled.div`
 `;
 
 const Img = styled.img`
-  inline-size: 700px;
-  block-size: 700px;
-  margin-block-start: 50px;
-  margin-inline-start: 80px;
-  padding: 15px;
-  background-size: cover;
-  cursor: pointer;
+  width: 800px;
+  height: 700px;
+  object-fit: contain;
+  object-position: center;
+  padding: 5px;
+  margin: 0%;
   border-radius: 50%;
-  box-shadow: 0 0 0 5px #fff, 0 0 0 50px white;
+  background-color: #ffffff44;
+  cursor: pointer;
   animation: animate 2s infinite ease alternate;
 
   @keyframes animate {
     to {
       transform: translateY(45px);
-      box-shadow: 0 0 0 5px #fff, 0 0 0 20px white;
+      border-radius: 39%;
     }
   }
 `;
@@ -101,33 +168,32 @@ function Home() {
     >
       <HomeContainer>
         <Left>
-          <Title>Pensar. Fazer. Resolver.</Title>
+          <Title>
+            Pensar. <span className="gradient">Fazer. </span> Resolver.
+          </Title>
           <WhatWeDo>
             <Line src="./public/img/line.png" />
             <Subtitle>O que eu faço?</Subtitle>
             <Line src="./public/img/line.png" />
           </WhatWeDo>
-          <Desc>Criação e inovação através da tecnologia.</Desc>
-          <motion.a
-            whileHover={{ scale: 1.2 }}
-            onHoverStart={(e) => {}}
-            onHoverEnd={(e) => {}}
+          <Desc>CRIAÇÃO E INOVAÇÃO ATRAVÉS DA TECNOLOGIA.</Desc>
+          <motion.div
+            className="boxtap"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: 'spring', stiffness: 200, damping: 17 }}
           >
-            <Button to="/Sobre"> Saiba mais </Button>
-          </motion.a>
+            <Button to="/Sobre"> clique aqui para saber mais </Button>
+          </motion.div>
         </Left>
         <Right>
           <motion.div
-            className="box2"
-            drag
-            dragConstraints={{
-              top: -50,
-              left: -50,
-              right: 50,
-              bottom: 50,
-            }}
+            className="boxtap"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: 'spring', stiffness: 200, damping: 17 }}
           >
-            <Img src="./public/img/avatar1.png" />
+            <Img src="./public/img/3d.png" />
           </motion.div>
         </Right>
       </HomeContainer>
