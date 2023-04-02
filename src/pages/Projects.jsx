@@ -3,23 +3,43 @@ import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const TitleTitle = styled.div`
-  font-size: 100px;
+  font-size: 45px;
   font-family: 'Centra', sans-serif !important;
   font-weight: bold;
   text-align: center;
   color: var(--color-white);
-  margin-block-start: 20px;
+  text-shadow: 1px 2px 5px black;
+  margin-block-start: -25px;
+  ${({ isBlurActive }) => isBlurActive && 'filter: blur(3px);'}
 `;
 
 const Container = styled.div`
+  display: flex;
   position: relative;
   display: grid;
-  inline-size: 100vw;
+  inline-size: 85vw;
   block-size: 70vh;
   padding: 5px;
   inset-block-start: 15px;
   grid-template-columns: 2fr 2fr 2fr;
   list-style: none;
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(13.5px);
+  -webkit-backdrop-filter: blur(13.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  ${({ isBlurActive }) => isBlurActive && 'filter: blur(5px);'}
+`;
+
+const ContainerContainer = styled.div`
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  max-inline-size: 100%;
+  max-block-size: 100%;
+  position: relative;
+  background-color: #fff;
 `;
 
 const Item = styled(motion.div)`
@@ -30,19 +50,22 @@ const Item = styled(motion.div)`
   margin: 30px;
   border-radius: 10px;
   cursor: pointer;
-  position: relative;
-  overflow: hidden;
   background: #fff;
   box-shadow: 0.5px 0.5px 5px;
-  will-change: transform
-  z-index: ${({ isSelected }) => (isSelected ? '99' : '-1')};
+  z-index: ${({ isSelected }) => (isSelected ? '1' : '-1')};
   inline-size: ${({ isSelected }) => (isSelected ? '80%' : 'calc(95% - 50px)')};
-  height: ${({ isSelected }) => (isSelected ? '600px' : 'auto')};
+  block-size: ${({ isSelected }) => (isSelected ? '80%' : 'auto')};
   position: ${({ isSelected }) => (isSelected ? 'fixed' : 'relative')};
-  top: ${({ isSelected }) => (isSelected ? '15%' : 'auto')};
-  left: ${({ isSelected }) => (isSelected ? '5%' : 'auto')};
-  transform: ${({ isSelected }) =>
-    isSelected ? 'translate(-50%, -50%)' : 'none'};
+  inset-block-start: ${({ isSelected }) => (isSelected ? '5%' : 'auto')};
+  inset-inline-start: ${({ isSelected }) => (isSelected ? '5%' : 'auto')};
+  margin: ${({ isSelected }) => (isSelected ? '5%' : 'none')};
+  &:hover {
+    border: 1px solid yellow;
+    opacity: 0.1px;
+    box-shadow: 0.5px 1px 10px;
+    transform: translateY(-5px);
+    z-index: 1;
+  }
 `;
 
 const Subtitle = styled(motion.h5)`
@@ -58,11 +81,37 @@ const Title = styled(motion.h2)`
 `;
 
 const Button = styled(motion.button)`
-  padding: 10px 20px;
-  border: none;
+  position: absolute;
+  inset-block-start: 3%;
+  inset-inline-end: 2%;
+  font-family: 'Centra', sans-serif !important;
+  font-weight: bold;
+  padding: 5px 10px;
+  border: 2px;
   border-radius: 5px;
-  background-color: #333;
+  margin-block-end: 10px;
   color: #fff;
+  background: linear-gradient(
+    -45deg,
+    var(--color-light-blue),
+    var(--color-light-purple),
+    var(--color-light-blue),
+    var(--color-light-purple)
+  );
+  background-size: 400% 400%;
+  animation: gradient 3s ease infinite;
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
   cursor: pointer;
 `;
 
@@ -77,10 +126,10 @@ const items = [
 
 const Project = () => {
   const [selectedId, setSelectedId] = useState(null);
+  const isBlurActive = selectedId !== null;
 
   return (
     <motion.div
-      className="box"
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{
@@ -89,8 +138,8 @@ const Project = () => {
         ease: [0, 0.71, 0.2, 1.01],
       }}
     >
-      <TitleTitle> Projetos</TitleTitle>
-      <Container>
+      <TitleTitle isBlurActive={isBlurActive}> Projetos e Parcerias</TitleTitle>
+      <Container isBlurActive={isBlurActive}>
         {items.map((item) => (
           <Item
             key={item.id}
@@ -102,6 +151,8 @@ const Project = () => {
             <Title>{item.title}</Title>
           </Item>
         ))}
+      </Container>
+      <ContainerContainer>
         <AnimatePresence>
           {selectedId && (
             <Item
@@ -109,19 +160,19 @@ const Project = () => {
               layoutId={selectedId}
               isSelected={true}
               initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 0.8 }}
-              exit={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1 }}
               whileHover={{ scale: 1 }}
               transition={{ type: 'spring', stiffness: 60, damping: 10 }}
               onClick={() => setSelectedId(null)}
             >
               <Subtitle>{items[selectedId - 1].subtitle}</Subtitle>
               <Title>{items[selectedId - 1].title}</Title>
-              <Button onClick={() => setSelectedId(null)}>Close</Button>
+              <Button onClick={() => setSelectedId(null)}>x</Button>
             </Item>
           )}
         </AnimatePresence>
-      </Container>
+      </ContainerContainer>
     </motion.div>
   );
 };

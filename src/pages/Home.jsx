@@ -111,8 +111,12 @@ const Desc = styled.p`
 
 const Button = styled(Link)`
   font-family: 'Centra', sans-serif !important;
+  font-size: 24px;
   font-variant: small-caps;
-  background-color: #f5f1b9c7;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  padding: 10px 15px;
   background: linear-gradient(
     -45deg,
     var(--color-light-blue),
@@ -120,11 +124,20 @@ const Button = styled(Link)`
     var(--color-light-blue),
     var(--color-light-purple)
   );
-  font-weight: 500;
-  inline-size: 100px;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
+  background-size: 400% 400%;
+  animation: gradient 3s ease infinite;
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 `;
 
 const Right = styled.div`
@@ -178,7 +191,6 @@ function Home() {
           </WhatWeDo>
           <Desc>CRIAÇÃO E INOVAÇÃO ATRAVÉS DA TECNOLOGIA.</Desc>
           <motion.div
-            className="boxtap"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: 'spring', stiffness: 200, damping: 17 }}
@@ -188,7 +200,6 @@ function Home() {
         </Left>
         <Right>
           <motion.div
-            className="boxtap"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: 'spring', stiffness: 200, damping: 17 }}

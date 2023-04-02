@@ -6,7 +6,8 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
-import { motion, AnimatePresence } from 'framer-motion';
+import Footer from './components/Footer';
+import { motion } from 'framer-motion';
 import './style.css';
 
 const AppContainer = styled.div`
@@ -14,7 +15,17 @@ const AppContainer = styled.div`
   inline-size: 100vw;
   block-size: 100vh;
   box-sizing: border-box;
-  background-image: linear-gradient(135deg, #ffd3a5 10%, #fd6585 100%);
+  background: #22c1c3; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to left,
+    #fdbb2d,
+    #22c1c3
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to left,
+    #fdbb2d,
+    #22c1c3
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 `;
 
 const ContentContainer = styled.div`
@@ -29,6 +40,7 @@ const ContentContainer = styled.div`
 function App() {
   return (
     <AppContainer>
+      <Navbar />
       <motion.div
         className="box"
         initial={{ opacity: 0, scale: 0.5 }}
@@ -39,7 +51,6 @@ function App() {
           ease: [0, 0.71, 0.2, 1.01],
         }}
       >
-        <Navbar />
         <ContentContainer>
           <Routes>
             <Route element={<Home />} exact path="/" />
@@ -48,6 +59,7 @@ function App() {
             <Route element={<Contact />} path="/Contato" />
           </Routes>
         </ContentContainer>
+        <Footer />
       </motion.div>
     </AppContainer>
   );

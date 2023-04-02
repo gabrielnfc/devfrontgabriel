@@ -1,20 +1,21 @@
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 import styled from 'styled-components';
+import { motion } from "framer-motion";
 
-const ListItem = styled.li`
+const ListItem = styled.button`
   display: flex;
-  padding: 10px 30px;
+  border: none;
+  padding: 5px 25px;
+  position: relative;
+  background-color: transparent;
   a {
-    color: #fff;
-    &:active {
-      text-shadow: 2px 4px 10px white;
-      border-block-end: 4px;
-    }
-    &:hover {
-      text-shadow: 2px 2px 10px white;
-      border-block-end: 4px;
-      border-block-start: 4px;
-    }
+    font-family: 'Centra', sans-serif!important;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    color: #455a64;
+    background-color: transparent !important;
   }
 `;
 
@@ -24,11 +25,14 @@ const CustomLink = ({ to, children, ...props }) => {
 
   return (
     <ListItem className={isActive ? 'active' : ''}>
-      <Link to={to} {...props}>
-        {children}
-      </Link>
+      <motion.button whileHover={{ scale: 1.3 }} whileTap={{ scale: 1 }} style={{color: "white", background: "transparent", border: "none"}}>
+        <Link to={to} {...props}>
+          {children}
+        </Link>
+      </motion.button>
     </ListItem>
   );
 };
+
 
 export default CustomLink;
