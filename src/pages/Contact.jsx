@@ -1,6 +1,8 @@
 import React from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 
 const Title = styled.h1`
   display: flex;
@@ -108,10 +110,44 @@ const Button = styled.button`
 `;
 
 const Contact = () => {
-  const handleSubmit = (e) => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [message, setMessage] = useState('');
+
+  function sendEmail(e) {
     e.preventDefault();
-    // Handle form submission logic here
-  };
+
+    const templateParanms = {
+      from_name: name,
+      email: email,
+      phone: phone,
+      message: message,
+    };
+
+    emailjs
+      .send(
+        'service_rswegfp',
+        'template_ctqjsmh',
+        templateParanms,
+        'FDgQZMmzpH23fYCiW'
+      )
+      .then(
+        (response) => {
+          console.log('EMAIL ENVIADO', response.status, response.text);
+          setName('');
+          setEmail('');
+          setPhone('');
+          setMessage('');
+        },
+        (error) => {
+          console.log('ERRO', error.status);
+        }
+      );
+
+    // Display a success message to the user
+    alert('Sua mensagem foi enviada!');
+  }
 
   return (
     <motion.div
@@ -137,23 +173,57 @@ const Contact = () => {
         >
           <Box>
             <h2>Bora trabalhar junto?</h2>
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={sendEmail}>
               <Label htmlFor="name">Nome</Label>
-              <Input type="text" id="name" name="name" required />
+              <Input
+                type="text"
+                placeholder="Digite seu nome"
+                id="name"
+                name="name"
+                onChange={(e) => setName(e.target.value)}
+                value={name}
+                required
+              />
 
               <Label htmlFor="email">E-mail</Label>
-              <Input type="email" id="email" name="email" required />
+              <Input
+                type="email"
+                placeholder="Digite seu email"
+                id="email"
+                name="email"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                required
+              />
+
+              <Label htmlFor="phone">Telefone</Label>
+              <Input
+                type="tel"
+                placeholder="Digite seu telefone"
+                id="phone"
+                name="phone"
+                onChange={(e) => setPhone(e.target.value)}
+                value={phone}
+                required
+              />
 
               <Label htmlFor="message">Digite sua mensagem aqui</Label>
-              <TextArea id="message" name="message" required />
+              <TextArea
+                id="message"
+                placeholder="deixe sua mensagem aqui"
+                name="message"
+                onChange={(e) => setMessage(e.target.value)}
+                value={message}
+                required
+              />
 
               <Button type="submit">Enviar</Button>
             </Form>
           </Box>
           <p>
             {' '}
-            Se você tem uma pergunta ou apenas quer dizer "Oi", <br></br>farei o possível
-            para entrar em contato com você!{' '}
+            Se você tem uma pergunta ou apenas quer dizer "Oi", <br></br>farei o
+            possível para entrar em contato com você!{' '}
           </p>
         </motion.div>
       </ContactContainer>

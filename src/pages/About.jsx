@@ -15,25 +15,23 @@ const AboutTitle = styled.h1`
   margin-bottom: 1rem;
 `;
 
-const AboutDescription = styled.p`
-  color #ff2;
-  font-size: 1.5rem;
+const Bio = styled.p`
+  font-size: 1.2rem;
+  margin-top: 2rem;
   text-align: center;
-  margin-bottom: 2rem;
 `;
 
-const AboutButton = styled.button`
-  background-color: #333;
-  color: #fff;
-  border: none;
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
-  border-radius: 5px;
-  cursor: pointer;
+const Photo = styled.img`
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-top: 2rem;
+`;
 
-  &:hover {
-    background-color: #444;
-  }
+const Heading = styled.h1`
+  font-size: 2rem;
+  margin-top: 2rem;
 `;
 
 const About = () => {
@@ -49,13 +47,18 @@ const About = () => {
       }}
     >
       <AboutContainer>
-        <AboutTitle>About Us</AboutTitle>
-        <AboutDescription>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget
-          lorem euismod, dictum nulla id, bibendum nunc. Vivamus vel sapien in
-          velit maximus commodo non eget arcu.
-        </AboutDescription>
-        <AboutButton>Learn More</AboutButton>
+        <AboutTitle>Sobre mim</AboutTitle>
+        <Heading>Oi! Meu nome é Gabriel</Heading>
+        <Photo src="./public/img/Gabriel1.png" alt="Your Name" />
+        <Bio>
+          Hi, I'm [Your Name]. I was born in [Year] in [City, Country] and have
+          been living there ever since. Growing up, I was always interested in
+          [Interest/Hobby], which led me to [Major/Career Path]. I graduated
+          from [University/College] in [Year] and have been working as a [Job
+          Title] at [Company] ever since. In my free time, I enjoy
+          [Hobby/Interest]. I also love spending time with my
+          [Family/Friends/Pet] and exploring new places. Thanks for stopping by!
+        </Bio>
       </AboutContainer>
     </motion.div>
   );
