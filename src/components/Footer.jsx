@@ -13,12 +13,15 @@ const StyledFooter = styled.footer`
     justify-content: space-around;
     align-items: center;
     p {
-        font-size: 12px;
+        font-size: small;
         font-family: 'Centra', sans-serif !important;
     }
     span {
-        text-decoration: underline;
         cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+            color:#f6d365;
+        }
     }
 `;
 

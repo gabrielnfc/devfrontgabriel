@@ -90,28 +90,7 @@ const Button = styled(motion.button)`
   border: 2px;
   border-radius: 5px;
   margin-block-end: 10px;
-  color: #fff;
-  background: linear-gradient(
-    -45deg,
-    var(--color-light-blue),
-    var(--color-light-purple),
-    var(--color-light-blue),
-    var(--color-light-purple)
-  );
-  background-size: 400% 400%;
-  animation: gradient 3s ease infinite;
-
-  @keyframes gradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
   cursor: pointer;
 `;
 

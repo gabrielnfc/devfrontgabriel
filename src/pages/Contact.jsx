@@ -13,7 +13,7 @@ const Title = styled.h1`
   color: var(--color-white);
   text-shadow: 1px 2px 5px black;
   inline-size: 100%;
-  block-size: 15%;
+  block-size: 10%;
 `;
 
 const ContactContainer = styled.div`
@@ -21,14 +21,23 @@ const ContactContainer = styled.div`
   align-items: center;
   justify-content: center;
   inline-size: 98vw;
-  block-size: 80vh;
+  block-size: 75vh;
+  p {
+    font-size: 20px;
+    font-family: 'Centra', sans-serif !important;
+    font-weight: bold;
+    text-align: center;
+    color: var(--color-white);
+    text-shadow: 1px 2px 5px black;
+    margin-block-start: -150px;
+  }
 `;
 
 const Image = styled.img`
   max-inline-size: 90%;
   max-block-size: 90%;
-  margin-left: -200px;
-  margin-bottom: 13%;
+  margin-left: -160px;
+  margin-bottom: 5%;
 `;
 
 const Box = styled.div`
@@ -39,7 +48,17 @@ const Box = styled.div`
   background-color: #f1f1f1;
   padding: 35px 35px;
   border-radius: 5px;
-  margin-bottom: 40%;
+  margin-bottom: 25%;
+  margin-top: -10%;
+  h2 {
+    font-size: 35px;
+    font-family: 'Centra', sans-serif !important;
+    text-align: center;
+    font-weight: bold;
+  }
+  label {
+    font-family: 'Centra', sans-serif !important;
+  }
 `;
 
 const Form = styled.form`
@@ -122,15 +141,20 @@ const Contact = () => {
               <Label htmlFor="name">Nome</Label>
               <Input type="text" id="name" name="name" required />
 
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">E-mail</Label>
               <Input type="email" id="email" name="email" required />
 
               <Label htmlFor="message">Digite sua mensagem aqui</Label>
               <TextArea id="message" name="message" required />
 
-              <Button type="submit">Send</Button>
+              <Button type="submit">Enviar</Button>
             </Form>
           </Box>
+          <p>
+            {' '}
+            Se você tem uma pergunta ou apenas quer dizer "Oi", <br></br>farei o possível
+            para entrar em contato com você!{' '}
+          </p>
         </motion.div>
       </ContactContainer>
     </motion.div>
