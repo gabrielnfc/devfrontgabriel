@@ -15,17 +15,9 @@ const AppContainer = styled.div`
   inline-size: 100vw;
   block-size: 100vh;
   box-sizing: border-box;
-  background: #22c1c3; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to left,
-    #fdbb2d,
-    #22c1c3
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to left,
-    #fdbb2d,
-    #22c1c3
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-image: url(public/img/pattern.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 const ContentContainer = styled.div`

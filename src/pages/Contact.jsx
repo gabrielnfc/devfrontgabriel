@@ -177,7 +177,7 @@ const Contact = () => {
               <Label htmlFor="name">Nome</Label>
               <Input
                 type="text"
-                placeholder="Digite seu nome"
+                placeholder="Seu nome"
                 id="name"
                 name="name"
                 onChange={(e) => setName(e.target.value)}
@@ -188,7 +188,7 @@ const Contact = () => {
               <Label htmlFor="email">E-mail</Label>
               <Input
                 type="email"
-                placeholder="Digite seu email"
+                placeholder="Seu email"
                 id="email"
                 name="email"
                 onChange={(e) => setEmail(e.target.value)}
@@ -199,7 +199,7 @@ const Contact = () => {
               <Label htmlFor="phone">Telefone</Label>
               <Input
                 type="tel"
-                placeholder="Digite seu telefone"
+                placeholder="Seu telefone"
                 id="phone"
                 name="phone"
                 onChange={(e) => setPhone(e.target.value)}
@@ -210,7 +210,7 @@ const Contact = () => {
               <Label htmlFor="message">Digite sua mensagem aqui</Label>
               <TextArea
                 id="message"
-                placeholder="deixe sua mensagem aqui"
+                placeholder="deixe aqui a sua mensagem"
                 name="message"
                 onChange={(e) => setMessage(e.target.value)}
                 value={message}
