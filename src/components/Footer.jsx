@@ -12,15 +12,20 @@ const StyledFooter = styled.footer`
     letter-spacing: 0.1em;
     justify-content: space-around;
     align-items: center;
+    font-size: small;
     p {
         font-size: small;
         font-family: 'Centra', sans-serif !important;
+        text-decoration: none;
     }
     span {
         cursor: pointer;
+        font-size: small;
+        font-family: 'Centra', sans-serif !important;
+        text-decoration: none;
         &:hover {
             text-decoration: underline;
-            color:#f6d365;
+            color:#f2f3f2;
         }
     }
 `;
@@ -28,7 +33,7 @@ const StyledFooter = styled.footer`
 function Footer() {
     return (
     <StyledFooter>
-        <p>&copy;2023. Made by <span href="https://github.com/gabrielnfc" target="_blank" >Gabriel Nascimento</span></p>
+        <p>&copy;2023. Made by <span href="https://github.com/gabrielnfc" target="_blank" > Gabriel Nascimento </span></p>
     </StyledFooter>
     );
 }

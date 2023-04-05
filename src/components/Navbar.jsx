@@ -4,7 +4,7 @@ import CustomLink from './CustomLink.jsx';
 import navIcon1 from '../assets/img/nav-icon1.svg';
 import navIcon2 from '../assets/img/nav-icon2.svg';
 import navIcon3 from '../assets/img/nav-icon3.svg';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Nav = styled.nav`
   display: flex;
@@ -25,7 +25,7 @@ const Nav = styled.nav`
 
 const Icon = styled(Link)`
   display: flex;
-  width: 80px;;
+  width: 80px;
   height: 80px;
   z-index: 99;
   border: 0;
@@ -41,7 +41,6 @@ const List = styled.ul`
   list-style: none;
   text-decoration: none;
 `;
-
 
 const NavBarIcon = styled.nav`
   display: flex;
@@ -128,63 +127,64 @@ const LIST_ITENS = [
   { route: '/Contato', content: 'CONTATO' },
 ];
 
-
 const Navbar = () => {
   return (
     <Nav>
-      <motion.div
-        whileHover={{ scale: 1.2 }}
-        whileTap={{ scale: 0.9 }}
-        transition={{ type: 'spring', stiffness: 200, damping: 17 }}
-      >
-        <Icon to="/">
-          <img src="./public/img/logo.png" alt="Logo" />
-        </Icon>
-      </motion.div>
-      <List>
-        {LIST_ITENS.map((item) => {
-          return (
-            <CustomLink key={item.route} to={item.route}>
-              {item.content}
-            </CustomLink>
-          );
-        })}
-      </List>
-      <NavBarIcon>
-        <IconContainer>
-          <motion.div
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ type: 'spring', stiffness: 200, damping: 17 }}
-          >
-            <a href="https://www.linkedin.com/in/gabrielnfc/" target="_blank">
-              <img src={navIcon1} alt="Meu Linkedin" />
-            </a>
-          </motion.div>
-          <motion.div
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ type: 'spring', stiffness: 200, damping: 17 }}
-          >
-            <a href="https://github.com/gabrielnfc" target="_blank">
-              <img src={navIcon2} alt="Meu GitHub" />
-            </a>
-          </motion.div>
-          <motion.div
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ type: 'spring', stiffness: 200, damping: 17 }}
-          >
-            <a
-              href="https://api.whatsapp.com/qr/GFEOWFFQFLEZI1?autoload=1&app_absent=0"
-              target="_blank"
+      <AnimatePresence>
+        <motion.div
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{ type: 'spring', stiffness: 200, damping: 17 }}
+        >
+          <Icon to="/">
+            <img src="./public/img/logo.png" alt="Logo" />
+          </Icon>
+        </motion.div>
+        <List>
+          {LIST_ITENS.map((item) => {
+            return (
+              <CustomLink key={item.route} to={item.route}>
+                {item.content}
+              </CustomLink>
+            );
+          })}
+        </List>
+        <NavBarIcon>
+          <IconContainer>
+            <motion.div
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: 'spring', stiffness: 200, damping: 17 }}
             >
-              <img src={navIcon3} alt="Fale comigo pelo Whatsapp" />
-            </a>
-          </motion.div>
-        </IconContainer>
-        <Button to="/Contato">Fale comigo!</Button>
-      </NavBarIcon>
+              <a href="https://www.linkedin.com/in/gabrielnfc/" target="_blank">
+                <img src={navIcon1} alt="Meu Linkedin" />
+              </a>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: 'spring', stiffness: 200, damping: 17 }}
+            >
+              <a href="https://github.com/gabrielnfc" target="_blank">
+                <img src={navIcon2} alt="Meu GitHub" />
+              </a>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: 'spring', stiffness: 200, damping: 17 }}
+            >
+              <a
+                href="https://api.whatsapp.com/qr/GFEOWFFQFLEZI1?autoload=1&app_absent=0"
+                target="_blank"
+              >
+                <img src={navIcon3} alt="Fale comigo pelo Whatsapp" />
+              </a>
+            </motion.div>
+          </IconContainer>
+          <Button to="/Contato">Fale comigo!</Button>
+        </NavBarIcon>
+      </AnimatePresence>
     </Nav>
   );
 };

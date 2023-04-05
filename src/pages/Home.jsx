@@ -67,6 +67,7 @@ const WhatWeDo = styled.div`
 
 const Line = styled.img`
   block-size: 3px;
+  margin: 15px;
 `;
 
 const Subtitle = styled.h2`
