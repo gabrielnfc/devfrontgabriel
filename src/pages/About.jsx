@@ -41,13 +41,25 @@ const Box1 = styled.div`
   top: -12rem;
   right: 3rem;
   padding: 2rem 2rem 1rem 2rem;
-  background-image: url(public/img/pattern.png);
-  background-repeat: no-repeat;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(13.5px);
-  -webkit-backdrop-filter: blur(13.5px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #c9d6ff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #e2e2e2,
+    #c9d6ff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #e2e2e2,
+    #c9d6ff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  box-shadow:
+  0.5px 1.4px 0.7px rgba(0, 0, 0, 0.04),
+  1.1px 3.2px 1.7px rgba(0, 0, 0, 0.059),
+  2px 5.8px 3px rgba(0, 0, 0, 0.073),
+  3.4px 9.6px 5px rgba(0, 0, 0, 0.086),
+  5.6px 15.9px 8.2px rgba(0, 0, 0, 0.099),
+  9.7px 27.7px 14.3px rgba(0, 0, 0, 0.114),
+  21px 60px 31px rgba(0, 0, 0, 0.14);
 `;
 
 const Photo1 = styled.img`
@@ -73,7 +85,7 @@ const Bio1 = styled.p`
   text-indent: 20px;
   justify-content: center;
   align-items: center;
-  color: #fff;
+  color: #345A63;
 `;
 
 const Box2 = styled.div`
@@ -88,13 +100,25 @@ const Box2 = styled.div`
   top: 1rem;
   right: -1rem;
   padding: 2rem 2rem 1rem 2rem;
-  background-image: url(public/img/pattern.png);
-  background-repeat: no-repeat;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(13.5px);
-  -webkit-backdrop-filter: blur(13.5px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #c9d6ff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #e2e2e2,
+    #c9d6ff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #e2e2e2,
+    #c9d6ff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  box-shadow:
+  0.5px 1.4px 0.7px rgba(0, 0, 0, 0.04),
+  1.1px 3.2px 1.7px rgba(0, 0, 0, 0.059),
+  2px 5.8px 3px rgba(0, 0, 0, 0.073),
+  3.4px 9.6px 5px rgba(0, 0, 0, 0.086),
+  5.6px 15.9px 8.2px rgba(0, 0, 0, 0.099),
+  9.7px 27.7px 14.3px rgba(0, 0, 0, 0.114),
+  21px 60px 31px rgba(0, 0, 0, 0.14);
 `;
 
 const Photo2 = styled.img`
@@ -120,7 +144,7 @@ const Bio2 = styled.p`
   text-indent: 20px;
   justify-content: center;
   align-items: center;
-  color: #fff;
+  color: #345A63;
 `;
 
 const Box3 = styled.div`
@@ -147,7 +171,7 @@ const Bio3 = styled.p`
   text-indent: 20px;
   justify-content: center;
   align-items: center;
-  color: #fff;
+  color: #345A63;
   h1 {
     font-size: 45px;
     font-family: 'Centra', sans-serif !important;

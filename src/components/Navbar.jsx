@@ -40,6 +40,9 @@ const List = styled.ul`
   align-items: stretch;
   list-style: none;
   text-decoration: none;
+  a {
+    color: #345A63;
+  }
 `;
 
 const NavBarIcon = styled.nav`
@@ -55,7 +58,7 @@ const IconContainer = styled.nav`
   a {
     inline-size: 50px;
     block-size: 50px;
-    background-color: #ffffffd5;
+    background-color: #ffffff9d;
     display: inline-flex;
     border-radius: 50%;
     border-color: transparent;
@@ -89,8 +92,8 @@ const IconContainer = styled.nav`
 const Button = styled(Link)`
   font-weight: 700;
   font-family: 'Centra', sans-serif !important;
-  color: #fff;
-  border: 2px solid #fff;
+  color: #345A63;
+  border: 2px solid #345A63;
   padding: 14px 30px;
   font-size: 18px;
   position: relative;
@@ -102,7 +105,7 @@ const Button = styled(Link)`
     width: 0%;
     height: 100%;
     position: absolute;
-    background-color: #fff;
+    background-color: #ffffffc3;
     left: 0;
     top: 0;
     z-index: -1;
@@ -110,7 +113,7 @@ const Button = styled(Link)`
   }
 
   &:hover {
-    color: #000000;
+    color: #345A63;
   }
 
   &:hover::before {

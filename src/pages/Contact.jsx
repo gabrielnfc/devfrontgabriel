@@ -52,6 +52,16 @@ const Box = styled.div`
   border-radius: 5px;
   margin-bottom: 25%;
   margin-top: -10%;
+  box-shadow:
+  2.4px 6.1px 5.8px -8px rgba(0, 0, 0, 0.03),
+  4.3px 11.1px 12.3px -8px rgba(0, 0, 0, 0.052),
+  5.5px 14.2px 19.6px -8px rgba(0, 0, 0, 0.07),
+  5.7px 14.7px 28.1px -8px rgba(0, 0, 0, 0.087),
+  5.8px 15px 37.7px -8px rgba(0, 0, 0, 0.103),
+  7.1px 18.3px 48.5px -8px rgba(0, 0, 0, 0.118),
+  9.3px 24px 59.5px -8px rgba(0, 0, 0, 0.134),
+  12px 31px 68px -8px rgba(0, 0, 0, 0.15)
+;
   h2 {
     font-size: 35px;
     font-family: 'Centra', sans-serif !important;

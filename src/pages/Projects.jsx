@@ -29,6 +29,15 @@ const Container = styled.div`
   -webkit-backdrop-filter: blur(13.5px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+  2.4px 6.1px 5.8px -8px rgba(0, 0, 0, 0.03),
+  4.3px 11.1px 12.3px -8px rgba(0, 0, 0, 0.052),
+  5.5px 14.2px 19.6px -8px rgba(0, 0, 0, 0.07),
+  5.7px 14.7px 28.1px -8px rgba(0, 0, 0, 0.087),
+  5.8px 15px 37.7px -8px rgba(0, 0, 0, 0.103),
+  7.1px 18.3px 48.5px -8px rgba(0, 0, 0, 0.118),
+  9.3px 24px 59.5px -8px rgba(0, 0, 0, 0.134),
+  12px 31px 68px -8px rgba(0, 0, 0, 0.15);  
   ${({ isBlurActive }) => isBlurActive && 'filter: blur(5px);'}
 `;
 
@@ -40,6 +49,7 @@ const ContainerContainer = styled.div`
   max-block-size: 100%;
   position: relative;
   background-color: #fff;
+  
 `;
 
 const Item = styled(motion.div)`
